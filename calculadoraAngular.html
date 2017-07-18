@@ -1,0 +1,117 @@
+<html ng-app="calc">
+    <head>
+        <meta charset="utf-8">
+        <title>Calculadora AngularJS</title>
+        <script src="angular.js"></script>
+        <script type="text/javascript">
+            angular.module("calc", []);
+            angular.module("calc").controller("Ctrl", function($scope){
+                $scope.operacoes = [
+                    {"nome": "Soma"},
+                    {"nome": "Subtração"},
+                    {"nome": "Divisão"},
+                    {"nome": "Multiplicação"}
+                ];
+                
+                $scope.operacao = "";
+                var valor1 = 0;
+                var valor2 = 0;
+                var result = 0;
+                $scope.calcular = function calcular(){
+
+                valor1 = $scope.valor1;
+                valor2 = $scope.valor2;
+                console.log($scope.operacao);
+
+                if ($scope.operacao=="Soma") {
+                    result = parseFloat(valor1) + parseFloat(valor2);
+                }else if ($scope.operacao=="Subtração") {
+                    result = valor1 - valor2;
+                }else if ($scope.operacao=="Multiplicação") {
+                    result = valor1 * valor2;
+                }else{
+                    result = valor1 / valor2;
+                }
+
+
+                $scope.resultado = result;
+            }
+            })
+            
+        </script>
+        <style type="text/css">
+            *{
+                margin: 0;
+            }
+            form{
+                margin-left:40%;
+                margin-top:15%;
+                width: 20%;
+                font-family: sans-serif;
+            }
+            form fieldset{
+                border: 1px solid #000;
+                border-radius: 10px;
+
+            }
+            form legend{
+                font-weight: bold;
+                font-size: 20px;
+                text-align: center;
+            }
+            form td{
+                font-weight: bold;
+                font-size: 15px;
+            }
+            form input{
+                border:none;
+                border-bottom: #ccc solid 1px;
+            }
+            form button{
+                margin-left: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-weight: bold;
+            }
+            form select{
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+        </style>
+    </head>
+    <body ng-controller="Ctrl">
+        <form name="calculadora" method="post" action="">
+            <fieldset>
+                <legend>Calculadora</legend>
+                <table cellpadding="0px" cellspacing="10px"> 
+                    <tr>
+                        <td>Valor 1:</td>
+                        <td><input type="number" ng-model="valor1"/></td>
+                    </tr>
+                    <tr>
+                        <td>Valor 2:</td>
+                        <td><input type="number" ng-model="valor2"/></td>
+                    </tr>
+                    <tr>
+                        <td>Operação:</td>
+                        <td>
+                            <select ng-model="operacao">
+                                <option disabled selected value="">
+                                    Selecione uma opção
+                                </option>
+                                <option ng-repeat="op in operacoes" value="{{op.nome}}">
+                                    {{op.nome}}
+                                </option>
+                            </select>
+                            <button type="button" value="calcular" ng-click="calcular()">Calcular</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Resultado:</td>
+                        <td><input type="number" ng-model="resultado" readOnly /></td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </body>
+</html>
