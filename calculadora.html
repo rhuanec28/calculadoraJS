@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Calculadora JS</title>
+        <script type="text/javascript">
+            function calcular(operacao){
+
+               var valor1 = document.calculadora.valor1.value;
+               var valor2 = document.calculadora.valor2.value;
+
+                if (operacao=="somar") {
+                    var resultado = parseInt(valor1) + parseInt(valor2);
+                }else if (operacao=="subtrair") {
+                    var resultado = valor1 - valor2;
+                }else if (operacao=="multiplicar") {
+                    var resultado = valor1 * valor2;
+                }else{
+                    var resultado = valor1 / valor2;
+                }
+
+
+                document.calculadora.resultado.value = resultado;
+            }
+        </script>
+    </head>
+    <body>
+        <form name="calculadora" method="post" action="">
+            <table>
+                <tr>
+                    <th>Calculadora</th>
+                </tr>
+                <tr>
+                    <td>Valor 1:</td>
+                    <td><input type="text" name="valor1"/></td>
+                </tr>
+                <tr>
+                    <td>Valor 2:</td>
+                    <td><input type="text" name="valor2"/></td>
+                </tr>
+                <tr>
+                    <td>Operação</td>
+                    <td>
+                      <select name="operacao">
+                         <option value="somar">Somar</option>
+                         <option value="subtrair">Subtrair</option>
+                         <option value="multiplicar">Multiplifcar</option>
+                         <option value="dividir">Dividir</option>
+                      </select>
+                    </td>
+                    <td><button type="button" value="calcular" onClick="calcular(document.calculadora.operacao.value)">Calcular</button></td>
+                </tr>
+                <tr>
+                    <td>Resultado:</td>
+                    <td><input type="text" name="resultado"/></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
