@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+}
+form{
+    margin-left:40%;
+    margin-top:15%;
+    width: 20%;
+    font-family: sans-serif;
+}
+form fieldset{
+    border: 1px solid #000;
+    border-radius: 10px;
+
+}
+form legend{
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+form td{
+    font-weight: bold;
+    font-size: 15px;
+}
+form input{
+    border:none;
+    border-bottom: #ccc solid 1px;
+}
+form button{
+    margin-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-weight: bold;
+}
+form select{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

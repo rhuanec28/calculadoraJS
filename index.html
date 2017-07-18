@@ -1,0 +1,44 @@
+<html ng-app="calc">
+    <head>
+        <meta charset="utf-8">
+        <title>Calculadora AngularJS</title>
+        <script src="javascript/angular.js"></script>
+        <script src="javascript/operacoes.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    </head>
+    <body ng-controller="Ctrl">
+        <form name="calculadora" method="post" action="">
+            <fieldset>
+                <legend>Calculadora</legend>
+                <table cellpadding="0px" cellspacing="10px"> 
+                    <tr>
+                        <td>Valor 1:</td>
+                        <td><input type="number" ng-model="valor1"/></td>
+                    </tr>
+                    <tr>
+                        <td>Valor 2:</td>
+                        <td><input type="number" ng-model="valor2"/></td>
+                    </tr>
+                    <tr>
+                        <td>Operação:</td>
+                        <td>
+                            <select ng-model="operacao">
+                                <option disabled selected value="">
+                                    Selecione uma opção
+                                </option>
+                                <option ng-repeat="op in operacoes" value="{{op.nome}}">
+                                    {{op.nome}}
+                                </option>
+                            </select>
+                            <button type="button" value="calcular" ng-click="calcular()">Calcular</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Resultado:</td>
+                        <td><input type="number" ng-model="resultado" readOnly /></td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </body>
+</html>
